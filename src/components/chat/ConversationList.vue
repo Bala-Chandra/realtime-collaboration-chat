@@ -39,7 +39,6 @@
 
 <script setup lang="ts">
 import { useChatStore } from '@/stores/chat.store';
-import type { Conversation } from '@/types/chat';
 
 const chat = useChatStore();
 

@@ -39,13 +39,13 @@
 import { computed, onMounted } from 'vue';
 
 import ConversationList from
-  'src/components/chat/ConversationList.vue';
+  '@/components/chat/ConversationList.vue';
 
 import MessageList from
-  'src/components/chat/MessageList.vue';
+  '@/components/chat/MessageList.vue';
 
 import MessageComposer from
-  'src/components/chat/MessageComposer.vue';
+  '@/components/chat/MessageComposer.vue';
 
 import { useChatStore } from
   '@/stores/chat.store';
