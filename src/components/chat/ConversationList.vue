@@ -4,15 +4,8 @@
       v-for="conversation in chat.conversations"
       :key="conversation.id"
       clickable
-      :active="
-        chat.activeConversationId ===
-        conversation.id
-      "
-      @click="
-        chat.selectConversation(
-          conversation.id,
-        )
-      "
+      :active="chat.activeConversationId === conversation.id"
+      @click="chat.selectConversation(conversation.id)"
     >
       <q-item-section>
         <q-item-label>
@@ -20,16 +13,12 @@
         </q-item-label>
 
         <q-item-label caption>
-          {{
-            lastMessage(conversation.id)
-          }}
+          {{ lastMessage(conversation.id) }}
         </q-item-label>
       </q-item-section>
 
       <q-item-section side>
-        <q-badge
-          v-if="conversation.unreadCount"
-        >
+        <q-badge v-if="conversation.unreadCount">
           {{ conversation.unreadCount }}
         </q-badge>
       </q-item-section>
@@ -42,22 +31,13 @@ import { useChatStore } from '@/stores/chat.store';
 
 const chat = useChatStore();
 
-function lastMessage(
-  conversationId: string,
-) {
-  const conversation =
-    chat.conversationsById[
-      conversationId
-    ];
+function lastMessage(conversationId: string) {
+  const conversation = chat.conversationsById[conversationId];
 
   if (!conversation?.lastMessageId) {
     return 'No messages';
   }
 
-  return (
-    chat.messagesById[
-      conversation.lastMessageId
-    ]?.content ?? 'No messages'
-  );
+  return chat.messagesById[conversation.lastMessageId]?.content ?? 'No messages';
 }
 </script>

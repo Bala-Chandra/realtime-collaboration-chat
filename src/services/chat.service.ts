@@ -1,17 +1,8 @@
-import {
-  conversations,
-  messages,
-  users,
-} from '@/mocks/data';
+import { conversations, messages, users } from '@/mocks/data';
 
-import type {
-  Conversation,
-  Message,
-  User,
-} from '@/types/chat';
+import type { Conversation, Message, User } from '@/types/chat';
 
-const delay = (ms: number) =>
-  new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const chatService = {
   async getUsers(): Promise<User[]> {
@@ -28,24 +19,15 @@ export const chatService = {
     }));
   },
 
-  async getMessages(
-    conversationId: string,
-  ): Promise<Message[]> {
+  async getMessages(conversationId: string): Promise<Message[]> {
     await delay(500);
 
     return messages
-      .filter(
-        (message) =>
-          message.conversationId === conversationId,
-      )
+      .filter((message) => message.conversationId === conversationId)
       .map((message) => ({ ...message }));
   },
 
-  async sendMessage(
-    conversationId: string,
-    content: string,
-    clientId: string,
-  ): Promise<Message> {
+  async sendMessage(conversationId: string, content: string, clientId: string): Promise<Message> {
     await delay(700);
 
     if (content.toLowerCase().includes('fail')) {
@@ -63,16 +45,11 @@ export const chatService = {
     };
   },
 
-  async resync(
-    conversationId: string,
-  ): Promise<Message[]> {
+  async resync(conversationId: string): Promise<Message[]> {
     await delay(500);
 
     return messages
-      .filter(
-        (message) =>
-          message.conversationId === conversationId,
-      )
+      .filter((message) => message.conversationId === conversationId)
       .map((message) => ({ ...message }));
   },
 };

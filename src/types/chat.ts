@@ -1,12 +1,6 @@
-export type MessageStatus =
-  | 'sending'
-  | 'sent'
-  | 'failed';
+export type MessageStatus = 'sending' | 'sent' | 'failed';
 
-export type ConnectionState =
-  | 'connected'
-  | 'disconnected'
-  | 'reconnecting';
+export type ConnectionState = 'connected' | 'disconnected' | 'reconnecting';
 
 export interface User {
   id: string;

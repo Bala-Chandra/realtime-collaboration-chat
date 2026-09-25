@@ -39,5 +39,4 @@ class MockWebSocketService {
   }
 }
 
-export const websocketService =
-  new MockWebSocketService();
+export const websocketService = new MockWebSocketService();

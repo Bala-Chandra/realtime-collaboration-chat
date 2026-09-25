@@ -3,20 +3,15 @@ import { ref } from 'vue';
 
 import type { ConnectionState } from '@/types/chat';
 
-export const useConnectionStore = defineStore(
-  'connection',
-  () => {
-    const state = ref<ConnectionState>('connected');
+export const useConnectionStore = defineStore('connection', () => {
+  const state = ref<ConnectionState>('connected');
 
-    function setState(
-      newState: ConnectionState,
-    ) {
-      state.value = newState;
-    }
+  function setState(newState: ConnectionState) {
+    state.value = newState;
+  }
 
-    return {
-      state,
-      setState,
-    };
-  },
-);
+  return {
+    state,
+    setState,
+  };
+});

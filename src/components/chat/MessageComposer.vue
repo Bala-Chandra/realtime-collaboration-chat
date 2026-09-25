@@ -1,18 +1,8 @@
 <template>
   <div class="q-pa-md">
-    <q-input
-      v-model="text"
-      outlined
-      placeholder="Type a message..."
-      @keyup.enter="send"
-    >
+    <q-input v-model="text" outlined placeholder="Type a message..." @keyup.enter="send">
       <template #append>
-        <q-btn
-          round
-          flat
-          icon="send"
-          @click="send"
-        />
+        <q-btn round flat icon="send" @click="send" />
       </template>
     </q-input>
   </div>
